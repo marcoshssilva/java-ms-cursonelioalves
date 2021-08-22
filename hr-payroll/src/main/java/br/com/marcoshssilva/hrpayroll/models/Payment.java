@@ -1,4 +1,4 @@
-package br.com.marcoshssilva.hrpayroll.entities;
+package br.com.marcoshssilva.hrpayroll.models;
 
 
 
