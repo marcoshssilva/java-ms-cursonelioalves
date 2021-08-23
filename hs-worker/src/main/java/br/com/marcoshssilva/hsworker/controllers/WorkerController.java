@@ -36,6 +36,13 @@ public class WorkerController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public ResponseEntity<Worker> findById(@PathVariable Long id){
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		Worker w = workerRepository.findById(id).get();
 		LOG.info("HR-WORKER - Successfull request, PORT=" + env.getProperty("local.server.port"));
 		return ResponseEntity.ok(w);

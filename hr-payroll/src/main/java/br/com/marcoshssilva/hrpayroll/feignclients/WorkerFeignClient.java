@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.marcoshssilva.hrpayroll.models.Worker;
 
 @Component
-@FeignClient(name = "hs-worker", url = "localhost:8001", path = "/workers")
+@FeignClient(name = "hr-worker", path = "/workers")
 public interface WorkerFeignClient {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
