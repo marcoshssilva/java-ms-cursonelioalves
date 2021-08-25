@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,10 @@ public class WorkerController {
 	
 	@Autowired
 	WorkerRepository workerRepository;
+	
+	@Value("${test.config}")
+	private String testConfig;
+	
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Worker>> findAll(){
@@ -49,5 +54,11 @@ public class WorkerController {
 		Worker w = workerRepository.findById(id).get();
 		LOG.info("HR-WORKER - Successfull request, PORT=" + env.getProperty("local.server.port"));
 		return ResponseEntity.ok(w);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/config")
+	public ResponseEntity<?> getConfigs(){
+		LOG.info("CONFIGURAÇÃO: " + testConfig);
+		return ResponseEntity.noContent().build();
 	}
 }
