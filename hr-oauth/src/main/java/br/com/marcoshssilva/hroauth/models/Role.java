@@ -36,7 +36,7 @@ public class Role implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(roleName);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class Role implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Role other = (Role) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(roleName, other.roleName);
 	}
 
 	@Override
