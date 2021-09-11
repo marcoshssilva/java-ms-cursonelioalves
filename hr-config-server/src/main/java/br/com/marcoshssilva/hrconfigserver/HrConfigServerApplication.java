@@ -27,7 +27,7 @@ public class HrConfigServerApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		LOG.info("CONFIG SERVER enable and connected to Git");
-		//LOG.info("CREDENTIALS: " + git_user + " " + git_pass);
+		LOG.info("CREDENTIALS: " + git_user + " " + git_pass);
 	}
 
 }
