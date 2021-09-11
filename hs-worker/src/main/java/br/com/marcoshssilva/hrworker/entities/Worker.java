@@ -1,4 +1,4 @@
-package br.com.marcoshssilva.hsworker.entities;
+package br.com.marcoshssilva.hrworker.entities;
 
 import java.io.Serializable;
 

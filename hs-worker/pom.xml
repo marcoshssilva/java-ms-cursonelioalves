@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.marcoshssilva</groupId>
-	<artifactId>hs-worker</artifactId>
+	<artifactId>hr-worker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hs-worker</name>
 	<description>Worker microservice</description>
@@ -48,7 +48,9 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>
+				spring-cloud-starter-netflix-eureka-client
+			</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

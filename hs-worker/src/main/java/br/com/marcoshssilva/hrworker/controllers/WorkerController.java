@@ -1,4 +1,4 @@
-package br.com.marcoshssilva.hsworker.controllers;
+package br.com.marcoshssilva.hrworker.controllers;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.marcoshssilva.hsworker.entities.Worker;
-import br.com.marcoshssilva.hsworker.repositories.WorkerRepository;
+import br.com.marcoshssilva.hrworker.entities.Worker;
+import br.com.marcoshssilva.hrworker.repositories.WorkerRepository;
 
 @RefreshScope
 @RestController
@@ -30,9 +30,10 @@ public class WorkerController {
 	@Autowired
 	WorkerRepository workerRepository;
 	
+	/*
 	@Value("${test.config}")
 	private String testConfig;
-	
+	*/
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Worker>> findAll(){
@@ -44,23 +45,25 @@ public class WorkerController {
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public ResponseEntity<Worker> findById(@PathVariable Long id){
 		
-		/*
+		
 		// trecho de codigo apenas para testar o timeout do Zuul e Ribbon
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		*/
+		
 		
 		Worker w = workerRepository.findById(id).get();
 		LOG.info("HR-WORKER - Successfull request, PORT=" + env.getProperty("local.server.port"));
 		return ResponseEntity.ok(w);
 	}
 	
+	/*
 	@RequestMapping(method = RequestMethod.GET, value = "/config")
 	public ResponseEntity<?> getConfigs(){
 		LOG.info("CONFIGURAÇÃO: " + testConfig);
 		return ResponseEntity.noContent().build();
 	}
+	*/
 }
