@@ -15,9 +15,6 @@ public class HrConfigServerApplication implements CommandLineRunner {
 	@Value("${spring.cloud.config.server.git.username}")
 	private String git_user;
 	
-	@Value("${spring.cloud.config.server.git.password}")
-	private String git_pass;
-	
 	private static final Logger LOG = LoggerFactory.getLogger(HrConfigServerApplication.class);
 	
 	public static void main(String[] args) {
@@ -26,8 +23,8 @@ public class HrConfigServerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		LOG.info("CONFIG SERVER enable and connected to Git");
-		LOG.info("CREDENTIALS: " + git_user + " " + git_pass);
+		LOG.info("Config server enable and connected to Git");
+		LOG.info("GitHub User: " + git_user);
 	}
 
 }
